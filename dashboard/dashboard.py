@@ -155,8 +155,8 @@ def create_customer_demography_df(df: pd.DataFrame, geo: pd.DataFrame) -> pd.Dat
         ],
     )
 
-    # Dilimit untuk 80% saja, karena maximal 200mb data yang bisa ditampilkan
-    return customer_demography.sample(frac=0.8)
+    # Dilimit untuk 50% saja, agar tidak terlalu lag
+    return customer_demography.sample(frac=0.5)
 
 
 def create_seller_demography_df(df: pd.DataFrame, geo: pd.DataFrame) -> pd.DataFrame:
@@ -171,8 +171,8 @@ def create_seller_demography_df(df: pd.DataFrame, geo: pd.DataFrame) -> pd.DataF
         ],
     )
 
-    # Dilimit untuk 85% saja, karena maximal 200mb data yang bisa ditampilkan
-    return seller_demography.sample(frac=0.85)
+    # Dilimit untuk 50% saja, agar tidak terlalu lag
+    return seller_demography.sample(frac=0.5)
 
 
 all_df = pd.read_csv("dashboard/all_final.csv")

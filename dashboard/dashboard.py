@@ -154,6 +154,9 @@ def create_customer_demography_df(df: pd.DataFrame, geo: pd.DataFrame) -> pd.Dat
             "geolocation_state",
         ],
     )
+    customer_demography = customer_demography[
+        ~customer_demography.customer_id.duplicated()
+    ].reset_index(drop=True)
 
     # Dilimit untuk 5000 sampel, agar tidak terlalu lag
     return customer_demography.sample(5000)
@@ -170,6 +173,9 @@ def create_seller_demography_df(df: pd.DataFrame, geo: pd.DataFrame) -> pd.DataF
             "geolocation_state",
         ],
     )
+    seller_demography = seller_demography[
+        ~seller_demography.customer_id.duplicated()
+    ].reset_index(drop=True)
 
     # Dilimit untuk 5000 sampel, agar tidak terlalu lag
     return seller_demography.sample(5000)

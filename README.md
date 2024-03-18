@@ -5,7 +5,7 @@
 ```
 python -m venv .venv
 .venv/Scripts/activate
-pip install -r requirements.txt
+pip install streamlit numpy seaborn geopandas jupyter babel
 ```
 
 ## Run steamlit app
